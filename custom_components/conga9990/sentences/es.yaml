@@ -1,0 +1,30 @@
+# Managed Conga profile phrases. No wildcard commands for other appliances.
+language: es
+intents:
+  CongaRunProfile:
+    data:
+      - sentences:
+          - "Conga limpia {conga_profile}"
+          - "Conga ejecuta {conga_profile}"
+          - "limpia {conga_profile} con la Conga"
+          - "ejecuta [el perfil] {conga_profile} con la Conga"
+          - "activa [el perfil] {conga_profile} con la Conga"
+  CongaManualMove:
+    data:
+      - sentences:
+          - "Conga {conga_direction}"
+lists:
+  conga_profile:
+    wildcard: true
+  conga_direction:
+    values:
+      - in: "avanza [un poco]"
+        out: forward
+      - in: "retrocede [un poco]"
+        out: backward
+      - in: "gira a la izquierda"
+        out: turn_left
+      - in: "gira a la derecha"
+        out: turn_right
+      - in: "para el movimiento"
+        out: stop
