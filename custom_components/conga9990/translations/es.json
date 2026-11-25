@@ -1,0 +1,177 @@
+{
+  "title": "Conga 9990 Local",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Conecta tu Conga por la red local",
+        "description": "Introduce la dirección y las credenciales locales del robot.",
+        "data": {
+          "host": "Dirección del robot",
+          "device_id": "Identificador del dispositivo",
+          "local_key": "Clave local",
+          "map_owner_uid": "Cuenta del mapa (opcional)",
+          "map_file_token": "Token local de archivos (opcional)"
+        }
+      },
+      "reconfigure": {
+        "title": "Actualizar conexión local",
+        "description": "Actualiza la dirección y la clave local del mismo robot.",
+        "data": {
+          "host": "Dirección del robot",
+          "local_key": "Clave local",
+          "map_owner_uid": "Cuenta del mapa (opcional)",
+          "map_file_token": "Token local de archivos (opcional)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "No se puede conectar con el robot",
+      "invalid_auth": "La autenticación local ha fallado",
+      "invalid_key": "La clave local debe contener 16 bytes",
+      "unsupported_device": "El robot no ha comunicado el perfil de estado compatible",
+      "invalid_map_credentials": "Revisa la cuenta y el token del canal de mapas"
+    },
+    "abort": {
+      "already_configured": "Este robot ya está configurado",
+      "reconfigure_successful": "Conexión actualizada"
+    }
+  },
+  "services": {
+    "manual_move": {
+      "name": "Mover manualmente",
+      "description": "Mueve brevemente el robot y envía después una parada.",
+      "fields": {
+        "direction": {
+          "name": "Dirección",
+          "description": "Dirección"
+        },
+        "duration": {
+          "name": "Duración",
+          "description": "Duración"
+        }
+      }
+    },
+    "manual_stop": {
+      "name": "Parar movimiento manual",
+      "description": "Detiene el movimiento manual.",
+      "fields": {}
+    },
+    "clean_home": {
+      "name": "Limpiar toda la casa",
+      "description": "Selecciona el modo de casa completa e inicia la limpieza.",
+      "fields": {}
+    },
+    "clean_rooms": {
+      "name": "Limpiar habitaciones",
+      "description": "Limpia solo las habitaciones seleccionadas del mapa actual.",
+      "fields": {
+        "room_ids": {
+          "name": "Identificadores de habitación",
+          "description": "Identificadores de habitación"
+        },
+        "repeats": {
+          "name": "Pasadas",
+          "description": "Pasadas"
+        }
+      }
+    },
+    "clean_spot": {
+      "name": "Limpiar un punto",
+      "description": "Limpia un punto transitable seleccionado en el mapa calibrado.",
+      "fields": {
+        "x": {
+          "name": "Coordenada X del mapa",
+          "description": "Coordenada X del mapa"
+        },
+        "y": {
+          "name": "Coordenada Y del mapa",
+          "description": "Coordenada Y del mapa"
+        },
+        "map_id": {
+          "name": "Identificador del mapa",
+          "description": "Identificador del mapa"
+        }
+      }
+    },
+    "clean_zones": {
+      "name": "Limpiar zonas",
+      "description": "Limpia solo los rectángulos seleccionados del mapa.",
+      "fields": {
+        "zones": {
+          "name": "Rectángulos en píxeles del mapa",
+          "description": "Rectángulos en píxeles del mapa"
+        },
+        "map_id": {
+          "name": "Identificador del mapa",
+          "description": "Identificador del mapa"
+        },
+        "repeats": {
+          "name": "Pasadas",
+          "description": "Pasadas"
+        }
+      }
+    },
+    "save_profile": {
+      "name": "Guardar perfil de limpieza",
+      "description": "Guarda habitaciones o zonas con un nombre, vinculadas a este mapa.",
+      "fields": {
+        "name": {
+          "name": "Nombre del perfil",
+          "description": "Nombre del perfil"
+        },
+        "room_ids": {
+          "name": "Identificadores de habitación",
+          "description": "Identificadores de habitación"
+        },
+        "zones": {
+          "name": "Rectángulos en píxeles del mapa",
+          "description": "Rectángulos en píxeles del mapa"
+        },
+        "repeats": {
+          "name": "Pasadas",
+          "description": "Pasadas"
+        },
+        "fan_speed": {
+          "name": "Potencia de aspiración",
+          "description": "Potencia de aspiración"
+        },
+        "clean_pattern": {
+          "name": "Patrón de limpieza",
+          "description": "Patrón de limpieza"
+        },
+        "water_level": {
+          "name": "Nivel de agua",
+          "description": "Nivel de agua"
+        },
+        "carpet_boost": {
+          "name": "Refuerzo en alfombras",
+          "description": "Refuerzo en alfombras"
+        },
+        "y_mop": {
+          "name": "Fregado en Y",
+          "description": "Fregado en Y"
+        }
+      }
+    },
+    "run_profile": {
+      "name": "Ejecutar perfil de limpieza",
+      "description": "Inicia el perfil guardado con el nombre indicado.",
+      "fields": {
+        "name": {
+          "name": "Nombre del perfil",
+          "description": "Nombre del perfil"
+        }
+      }
+    },
+    "delete_profile": {
+      "name": "Eliminar perfil de limpieza",
+      "description": "Elimina un perfil guardado sin modificar el mapa del robot.",
+      "fields": {
+        "name": {
+          "name": "Nombre del perfil",
+          "description": "Nombre del perfil"
+        }
+      }
+    }
+  }
+}

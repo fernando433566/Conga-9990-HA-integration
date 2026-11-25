@@ -1,0 +1,177 @@
+{
+  "title": "Conga 9990 Local",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect your Conga locally",
+        "description": "Enter the robot's local address and credentials.",
+        "data": {
+          "host": "Robot address",
+          "device_id": "Device ID",
+          "local_key": "Local key",
+          "map_owner_uid": "Map account ID (optional)",
+          "map_file_token": "Local file token (optional)"
+        }
+      },
+      "reconfigure": {
+        "title": "Update local connection",
+        "description": "Update the address and local key for the same robot.",
+        "data": {
+          "host": "Robot address",
+          "local_key": "Local key",
+          "map_owner_uid": "Map account ID (optional)",
+          "map_file_token": "Local file token (optional)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to the robot",
+      "invalid_auth": "Local authentication failed",
+      "invalid_key": "The local key must contain 16 bytes",
+      "unsupported_device": "The robot did not report the supported status profile",
+      "invalid_map_credentials": "Check both map account and file token fields"
+    },
+    "abort": {
+      "already_configured": "This robot is already configured",
+      "reconfigure_successful": "Connection updated"
+    }
+  },
+  "services": {
+    "manual_move": {
+      "name": "Move manually",
+      "description": "Move briefly in one direction and then send stop.",
+      "fields": {
+        "direction": {
+          "name": "Direction",
+          "description": "Direction"
+        },
+        "duration": {
+          "name": "Duration",
+          "description": "Duration"
+        }
+      }
+    },
+    "manual_stop": {
+      "name": "Stop manual movement",
+      "description": "Stop manual movement immediately.",
+      "fields": {}
+    },
+    "clean_home": {
+      "name": "Clean the whole home",
+      "description": "Select whole-home mode and start cleaning.",
+      "fields": {}
+    },
+    "clean_rooms": {
+      "name": "Clean rooms",
+      "description": "Clean only the selected rooms on the current map.",
+      "fields": {
+        "room_ids": {
+          "name": "Room identifiers",
+          "description": "Room identifiers"
+        },
+        "repeats": {
+          "name": "Repetitions",
+          "description": "Repetitions"
+        }
+      }
+    },
+    "clean_spot": {
+      "name": "Clean a point",
+      "description": "Clean the selected traversable point on the calibrated map.",
+      "fields": {
+        "x": {
+          "name": "Map X coordinate",
+          "description": "Map X coordinate"
+        },
+        "y": {
+          "name": "Map Y coordinate",
+          "description": "Map Y coordinate"
+        },
+        "map_id": {
+          "name": "Map identifier",
+          "description": "Map identifier"
+        }
+      }
+    },
+    "clean_zones": {
+      "name": "Clean zones",
+      "description": "Clean only the selected map rectangles.",
+      "fields": {
+        "zones": {
+          "name": "Rectangles in map pixels",
+          "description": "Rectangles in map pixels"
+        },
+        "map_id": {
+          "name": "Map identifier",
+          "description": "Map identifier"
+        },
+        "repeats": {
+          "name": "Repetitions",
+          "description": "Repetitions"
+        }
+      }
+    },
+    "save_profile": {
+      "name": "Save cleaning profile",
+      "description": "Save a named room or zone selection for this map.",
+      "fields": {
+        "name": {
+          "name": "Profile name",
+          "description": "Profile name"
+        },
+        "room_ids": {
+          "name": "Room identifiers",
+          "description": "Room identifiers"
+        },
+        "zones": {
+          "name": "Rectangles in map pixels",
+          "description": "Rectangles in map pixels"
+        },
+        "repeats": {
+          "name": "Repetitions",
+          "description": "Repetitions"
+        },
+        "fan_speed": {
+          "name": "Suction level",
+          "description": "Suction level"
+        },
+        "clean_pattern": {
+          "name": "Cleaning pattern",
+          "description": "Cleaning pattern"
+        },
+        "water_level": {
+          "name": "Water level",
+          "description": "Water level"
+        },
+        "carpet_boost": {
+          "name": "Carpet boost",
+          "description": "Carpet boost"
+        },
+        "y_mop": {
+          "name": "Y mopping",
+          "description": "Y mopping"
+        }
+      }
+    },
+    "run_profile": {
+      "name": "Run cleaning profile",
+      "description": "Start the saved profile by its exact name.",
+      "fields": {
+        "name": {
+          "name": "Profile name",
+          "description": "Profile name"
+        }
+      }
+    },
+    "delete_profile": {
+      "name": "Delete cleaning profile",
+      "description": "Remove a saved profile without changing the robot map.",
+      "fields": {
+        "name": {
+          "name": "Profile name",
+          "description": "Profile name"
+        }
+      }
+    }
+  }
+}

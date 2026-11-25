@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store
+.idea/
+.vscode/
+
+# Home Assistant runtime state and secrets
+.storage/
+secrets.yaml
+configuration.yaml
+*.pcap
+*.pcapng
+*.jsonl
+*.map
+*.path
+
+# Research artifacts are deliberately outside this distribution
+private/
+robot-root/
+conga-root/

@@ -1,0 +1,918 @@
+{
+  "model": "Conga 9990 AI Spin Revolution",
+  "schema": [
+    {
+      "id": 1,
+      "code": "switch_go",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 2,
+      "code": "pause",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 3,
+      "code": "switch_charge",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 4,
+      "code": "mode",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "smart",
+          "zone",
+          "pose",
+          "select_room",
+          "game",
+          "manual"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 5,
+      "code": "status",
+      "mode": "ro",
+      "type": "obj",
+      "property": {
+        "range": [
+          "standby",
+          "smart",
+          "zone_clean",
+          "paused",
+          "goto_pos",
+          "pos_arrived",
+          "pos_unarrive",
+          "goto_charge",
+          "charging",
+          "charge_done",
+          "sleep",
+          "select_room",
+          "part_clean",
+          "game",
+          "mapping",
+          "collecting_dust",
+          "manual",
+          "cleaning_to_continue",
+          "charging_to_continue"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 6,
+      "code": "clean_time",
+      "mode": "ro",
+      "type": "obj",
+      "property": {
+        "max": 9999,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value",
+        "unit": "min"
+      }
+    },
+    {
+      "id": 7,
+      "code": "clean_area",
+      "mode": "ro",
+      "type": "obj",
+      "property": {
+        "max": 9999,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value",
+        "unit": "㎡"
+      }
+    },
+    {
+      "id": 8,
+      "code": "battery_percentage",
+      "mode": "ro",
+      "type": "obj",
+      "property": {
+        "max": 100,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value",
+        "unit": "%"
+      }
+    },
+    {
+      "id": 9,
+      "code": "suction",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "close",
+          "gentle",
+          "normal",
+          "strong",
+          "max"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 10,
+      "code": "cistern",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "close",
+          "low",
+          "middle",
+          "high"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 11,
+      "code": "seek",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 12,
+      "code": "direction_control",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "forward",
+          "backward",
+          "turn_left",
+          "turn_right",
+          "stop",
+          "exit",
+          "right_forward",
+          "left_forward"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 13,
+      "code": "map_reset",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 14,
+      "code": "path_data",
+      "mode": "rw",
+      "type": "raw",
+      "property": {
+        "maxlen": 128,
+        "type": "raw"
+      }
+    },
+    {
+      "id": 15,
+      "code": "command_trans",
+      "mode": "rw",
+      "type": "raw",
+      "property": {
+        "maxlen": 128,
+        "type": "raw"
+      }
+    },
+    {
+      "id": 16,
+      "code": "request",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "get_map",
+          "get_path",
+          "get_both"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 17,
+      "code": "edge_brush_life",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "max": 9000,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value",
+        "unit": "min"
+      }
+    },
+    {
+      "id": 18,
+      "code": "edge_brush_life_reset",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 19,
+      "code": "roll_brush_life",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "max": 18000,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value",
+        "unit": "min"
+      }
+    },
+    {
+      "id": 20,
+      "code": "roll_brush_life_reset",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 21,
+      "code": "filter_life",
+      "mode": "ro",
+      "type": "obj",
+      "property": {
+        "max": 9000,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value",
+        "unit": "min"
+      }
+    },
+    {
+      "id": 22,
+      "code": "filter_reset",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 23,
+      "code": "rag_life",
+      "mode": "ro",
+      "type": "obj",
+      "property": {
+        "max": 9000,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value",
+        "unit": "min"
+      }
+    },
+    {
+      "id": 24,
+      "code": "rag_life_reset",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 25,
+      "code": "do_not_disturb",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 26,
+      "code": "volume_set",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "max": 100,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value",
+        "unit": "%"
+      }
+    },
+    {
+      "id": 27,
+      "code": "break_clean",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 28,
+      "code": "fault",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "label": [
+          "low_power",
+          "poweroff",
+          "wheel_trap",
+          "cannot_upgrade",
+          "collision_stuck",
+          "dust_station_full",
+          "tile_error",
+          "lidar_speed_err",
+          "lidar_cover",
+          "lidar_point_err",
+          "front_wall_dirty",
+          "psd_dirty",
+          "middle_sweep",
+          "side_sweep",
+          "fan_speed",
+          "dustbox_out",
+          "dustbox_full",
+          "no_dust_box",
+          "dustbox_fullout",
+          "trapped",
+          "pick_up",
+          "no_dust_water_box",
+          "water_box_empty",
+          "forbid_area",
+          "land_check",
+          "findcharge_fail",
+          "battery_err",
+          "kit_wheel",
+          "kit_lidar",
+          "kit_water_pump"
+        ],
+        "maxlen": 30,
+        "type": "bitmap"
+      }
+    },
+    {
+      "id": 29,
+      "code": "clean_area_total",
+      "mode": "ro",
+      "type": "obj",
+      "property": {
+        "max": 99999,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value",
+        "unit": "㎡"
+      }
+    },
+    {
+      "id": 30,
+      "code": "clean_count_total",
+      "mode": "ro",
+      "type": "obj",
+      "property": {
+        "max": 99999,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value"
+      }
+    },
+    {
+      "id": 31,
+      "code": "clean_time_total",
+      "mode": "ro",
+      "type": "obj",
+      "property": {
+        "max": 99999,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value",
+        "unit": "min"
+      }
+    },
+    {
+      "id": 32,
+      "code": "device_timer",
+      "mode": "rw",
+      "type": "raw",
+      "property": {
+        "maxlen": 128,
+        "type": "raw"
+      }
+    },
+    {
+      "id": 33,
+      "code": "disturb_time_set",
+      "mode": "rw",
+      "type": "raw",
+      "property": {
+        "maxlen": 128,
+        "type": "raw"
+      }
+    },
+    {
+      "id": 34,
+      "code": "device_info",
+      "mode": "ro",
+      "type": "raw",
+      "property": {
+        "maxlen": 128,
+        "type": "raw"
+      }
+    },
+    {
+      "id": 35,
+      "code": "voice_data",
+      "mode": "rw",
+      "type": "raw",
+      "property": {
+        "maxlen": 128,
+        "type": "raw"
+      }
+    },
+    {
+      "id": 36,
+      "code": "language",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "chinese_simplified",
+          "chinese_traditional",
+          "english",
+          "german",
+          "french",
+          "russian",
+          "spanish",
+          "korean",
+          "latin",
+          "portuguese",
+          "japanese",
+          "italian"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 37,
+      "code": "dust_collection_num",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "max": 4,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value"
+      }
+    },
+    {
+      "id": 38,
+      "code": "dust_collection_switch",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 39,
+      "code": "customize_mode_switch",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 40,
+      "code": "mop_state",
+      "mode": "ro",
+      "type": "obj",
+      "property": {
+        "range": [
+          "none",
+          "installed"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 41,
+      "code": "work_mode",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "both_work",
+          "only_sweep",
+          "only_mop"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 42,
+      "code": "unit_set",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "square_meter",
+          "square_foot"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 43,
+      "code": "estimated_area",
+      "mode": "ro",
+      "type": "obj",
+      "property": {
+        "max": 99999999,
+        "min": 0,
+        "scale": 0,
+        "step": 1,
+        "type": "value",
+        "unit": "㎡"
+      }
+    },
+    {
+      "id": 44,
+      "code": "carpet_clean_prefer",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "adaptive",
+          "evade",
+          "ignore"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 45,
+      "code": "auto_boost",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 46,
+      "code": "cruise_switch",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 47,
+      "code": "child_lock",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 49,
+      "code": "self_clean",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 50,
+      "code": "drying",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 51,
+      "code": "self_clean_frequency",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "max": 10,
+        "min": 1,
+        "scale": 0,
+        "step": 1,
+        "type": "value",
+        "unit": "㎡"
+      }
+    },
+    {
+      "id": 52,
+      "code": "self_clean_strength",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "fast",
+          "daily",
+          "depth"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 53,
+      "code": "land_strength",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "slow",
+          "normal",
+          "fast"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 101,
+      "code": "geofence_switch",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 103,
+      "code": "charge_type",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "seat",
+          "station"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 104,
+      "code": "y_mop_switch",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 105,
+      "code": "cleaning_way",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "auto",
+          "clean_thoroughly",
+          "acrubbing",
+          "border",
+          "espiral",
+          "espiral_cuadrada"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 106,
+      "code": "icons_to_robot",
+      "mode": "wr",
+      "type": "obj",
+      "property": {
+        "range": [
+          "icon1",
+          "icon2",
+          "icon3",
+          "icon4",
+          "icon5",
+          "icon6",
+          "icon7",
+          "icon8",
+          "icon9",
+          "icon10",
+          "icon11",
+          "icon12",
+          "icon13",
+          "icon14",
+          "icon15",
+          "icon16",
+          "icon17",
+          "icon18",
+          "icon19",
+          "icon20",
+          "icon21",
+          "icon22",
+          "icon23",
+          "icon24",
+          "icon25",
+          "icon26",
+          "icon27",
+          "icon28",
+          "icon29",
+          "icon30"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 107,
+      "code": "icons_to_app",
+      "mode": "ro",
+      "type": "raw",
+      "property": {
+        "maxlen": 128,
+        "type": "raw"
+      }
+    },
+    {
+      "id": 108,
+      "code": "sound_switch",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 109,
+      "code": "quick_map",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 110,
+      "code": "plan_icons",
+      "mode": "rw",
+      "type": "raw",
+      "property": {
+        "maxlen": 128,
+        "type": "raw"
+      }
+    },
+    {
+      "id": 120,
+      "code": "status_unlock_game",
+      "mode": "ro",
+      "type": "obj",
+      "property": {
+        "range": [
+          "map_unstable",
+          "twice_cleaning_unfinished",
+          "allow_play"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 128,
+      "code": "message_report",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "range": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "id": 142,
+      "code": "depth_clean",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 143,
+      "code": "alongwall_clean",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 144,
+      "code": "spiral_clean",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 145,
+      "code": "square_clean",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 146,
+      "code": "findchgfanstatus",
+      "mode": "rw",
+      "type": "obj",
+      "property": {
+        "type": "bool"
+      }
+    },
+    {
+      "id": 147,
+      "code": "score_alluser",
+      "mode": "rw",
+      "type": "raw",
+      "property": {
+        "maxlen": 128,
+        "type": "raw"
+      }
+    }
+  ]
+}
